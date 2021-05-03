@@ -1,0 +1,70 @@
+.navbar{
+    background-color: rgb(85, 82, 82);
+    color:rgb(255, 255, 255);
+    font-weight:500;
+    width:100%;
+    
+}
+
+.signa{
+	color: #fed136;
+	text-transform: uppercase;
+	font-weight:bold;
+	letter-spacing: 2px;
+	float:left;
+    text-decoration: none;
+}
+nav ul{
+    display:flex;
+    margin:0;
+    padding: 0;
+    text-align: center;    
+}
+.link{
+    text-decoration: none;
+    color:rgb(255, 255, 255);
+}
+.link:hover{
+    color:rgba(255, 255, 255, 0.829);
+    
+}
+li{
+    display: flex;
+    padding:20px;
+    
+    
+}
+li:hover{
+    background-color: rgb(128, 128, 128);
+}
+.btn-log {
+    background-color: #fee036;
+    color:white;
+    font-weight:bold;
+    border-radius: 10px;
+    margin-left:auto;
+    margin-top:1%;
+    margin-bottom:1%;
+    margin-right:1%;
+    padding:10px;
+}
+
+.btn-log:hover{
+    background-color: #ffea73;
+}
+
+@media only screen and (max-width: 500px) {
+    /*shows elements in a column*/
+    ul{
+      flex-direction: column;
+    }
+    
+    /* deletes margin on top or bottom of the a tag*/
+    li{
+      margin: 0;
+    }
+   /* makes sure that the a tag will take the entire screen*/
+    a{
+      display: block;
+    }
+  }
