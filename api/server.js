@@ -36,9 +36,13 @@ app.post('/register', async (req, res) => {
     text: sql,
     values: [user.username]
   })
+  if(user.username == "" && user.pswd ==""){
+    res.status(400).json({ message: 'Empty fields' })
+    return
+  }
   //console.log('sql.rows',result.rows[0].count)
   if (result.rows[0].count >= 1) {
-    res.status(400).json({ message: 'cet utilisateur existe deja' })
+    res.status(400).json({ message: 'This user already exists' })
     return
   }
   else {
@@ -49,7 +53,7 @@ app.post('/register', async (req, res) => {
       values: [user.username, hash]
     })
     res.json({ message: 'Bienvenue' })
-    console.log("Bienvenue")
+    console.log("Welcome")
 
   }
 })
@@ -59,7 +63,7 @@ app.post('/register', async (req, res) => {
 app.post("/login", async (req, res) => {
   const user = req.body
   if (user.username === '' || user.pswd === '') {
-    res.status(400).json({ message: 'bad request' })
+    res.status(400).json({ message: 'Empty fields' })
     return
   }
   
@@ -75,7 +79,7 @@ app.post("/login", async (req, res) => {
     const mdpHasheBDD = result.rows[0].password
     if (await bcrypt.compare(user.pswd, mdpHasheBDD)) {
       if (req.session.userId) {
-        res.status(401).json({ message: 'Utilisateur deja authentifié' })
+        res.status(401).json({ message: 'User already connected' })
       }
       else {
         req.session.userId = result.rows[0].id
@@ -93,7 +97,7 @@ app.post("/login", async (req, res) => {
 
   }
   else {
-    res.status(401).json({ message: 'Cet utilisateur n existe pas' })
+    res.status(401).json({ message: 'This user don t exist' })
 
   }
 })
@@ -131,6 +135,12 @@ app.post('/library', async (req, res) => {
   }
   
 
+})
+
+app.get('/logout', async(req,res) => {
+  req.session.destroy()
+  console.log("disconnected")
+  res.json("Disconnected")
 })
 
 

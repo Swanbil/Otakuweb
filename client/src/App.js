@@ -21,10 +21,10 @@ export default class App extends React.Component {
   }
 
   componentDidMount(){
-    const cookieLog =Cookies.get('connect.sid')
-    if(cookieLog !==''){
-      this.setState({isLog:true})
-    }
+    // const cookieLog =Cookies.get('connect.sid')
+    // if(cookieLog !==''){
+    //   this.setState({isLog:true})
+    // }
   }
   isLogin(logValue) {
     this.setState({ isLog: logValue })

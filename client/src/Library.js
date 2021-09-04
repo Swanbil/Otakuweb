@@ -33,17 +33,18 @@ export default class Library extends React.Component {
         <div className="library">
           <h2>LibraryPage</h2>
           <hr className="separator"></hr>
-          <h3>Voici votre bibliothèque</h3>
-          <ul>
-            {library.map((mg,idx) => {
-              return (
-                <li key={idx}>{mg.manga_name}</li>
+          <div className="liste">
+            <h3>Voici votre bibliothèque</h3>
+            <ul>
+              {library.map((mg, idx) => {
+                return (
+                  <li key={idx}>📚 {mg.manga_name}</li>
 
-              );
-            })
-            }
-          </ul>
-
+                );
+              })
+              }
+            </ul>
+          </div>
         </div>
       );
     }

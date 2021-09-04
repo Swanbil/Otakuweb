@@ -10,8 +10,8 @@ export default class Navbar extends React.Component {
     goLog:false
   }
 
-  logOut(){
-    Cookies.remove('connect.sid')
+  async logOut(){
+    await fetch('/logout')
     this.props.onLog(false)
   }
   
