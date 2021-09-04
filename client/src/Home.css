@@ -1,0 +1,21 @@
+.separator{
+	margin-top:3%;
+	height:3px;
+	width:10%;
+	border:none;
+	box-shadow:none;
+    background-color:#fed136 ;
+}
+.body{
+	text-align: center;
+	padding: 10px;
+}
+p{
+	padding:10px;
+	font-size: x-large;
+}
+img{
+	margin:10px;
+	
+	
+}

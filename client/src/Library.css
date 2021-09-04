@@ -1,0 +1,24 @@
+.separator{
+	margin-top:3%;
+	height:3px;
+	width:10%;
+	border:none;
+	box-shadow:none;
+    background-color:#fed136 ;
+}
+.liste{
+	display:flex;
+	flex-direction: column;
+	
+
+}
+h3{
+	text-align: center;
+}
+.liste li{
+	background-color:whitesmoke;
+	justify-content: center;
+	font-size:large;
+	font-weight: bold;
+	
+}
