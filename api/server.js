@@ -11,8 +11,8 @@ const { Client } = require('pg')
 const client = new Client({
   user: 'postgres',
   host: 'localhost',
-  password: 'motdepasse',
-  database: 'OtakuWeb'
+  password: 'vote',
+  database: 'Otakuweb'
 })
 
 client.connect()
@@ -110,7 +110,7 @@ app.get('/library', async(req,res) => {
   res.json(result.rows)
 })
 
-app.post('/library', async (req, res) => {
+app.post('/addlibrary', async (req, res) => {
   const manga = req.body
   if (manga.title === '' || manga.coverImage === '') {
     res.status(400).json({ message: 'bad request' })
@@ -133,8 +133,20 @@ app.post('/library', async (req, res) => {
     res.status(401).json("You have already this manga in your mangatheque")
     return
   }
-  
+})
 
+app.delete('/deletemanga', async(req,res) => {
+  const manga = req.body
+  if (manga.manga_name === '' || manga.coverImage === '') {
+    res.status(400).json({ message: 'bad request' })
+    return
+  }
+  const result = await client.query({
+    text: 'DELETE FROM library WHERE iduser = $1 and manga_name = $2',
+    values: [manga.iduser,manga.manga_name]
+  })
+  console.log("Manga is deleted of the library")
+  res.status(200).json("Manga is deleted of the library")
 })
 
 app.get('/logout', async(req,res) => {

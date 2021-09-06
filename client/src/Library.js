@@ -3,7 +3,7 @@ import './Library.css';
 
 export default class Library extends React.Component {
 
-  state = {
+  state = { 
     library: []
   }
 
@@ -14,6 +14,19 @@ export default class Library extends React.Component {
     })
       .then(res => res.json())
       .then(data => this.setState({ library: data }))
+  }
+
+  async deleteManga(idx){
+    await fetch('/deletemanga', {
+      headers: { 
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+     },
+    method: 'DELETE',
+    body:JSON.stringify(this.state.library[idx])
+    })
+    .then(await this.componentDidMount())
+    .catch(error => console.error(error))
   }
 
   render() {
@@ -38,7 +51,10 @@ export default class Library extends React.Component {
             <ul>
               {library.map((mg, idx) => {
                 return (
-                  <li key={idx}>📚 {mg.manga_name}</li>
+                  <li key={idx}>
+                    📚 {mg.manga_name}
+                    <button onClick={this.deleteManga.bind(this,idx)}>Delete</button>
+                  </li>
 
                 );
               })

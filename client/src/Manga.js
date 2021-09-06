@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 export default class Manga extends React.Component {
     
     state = {
-        array_manga: []
+        array_manga: [] 
     }
 
     async getAllMangas() {
@@ -44,7 +44,7 @@ export default class Manga extends React.Component {
         if(this.props.isLog){
             const manga = this.state.array_manga[idx]
             console.log(manga)
-            await fetch('/library',{
+            await fetch('/addlibrary',{
                 headers: { 
                     'Accept': 'application/json',
                     'Content-Type': 'application/json',

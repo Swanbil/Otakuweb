@@ -20,5 +20,15 @@ h3{
 	justify-content: center;
 	font-size:large;
 	font-weight: bold;
+	align-items: center;
 	
+}
+.liste button{
+	margin:10px;
+	background-color: rgb(219, 74, 74);
+}
+
+.liste button:hover{
+	margin:10px;
+	background-color: rgb(240, 90, 90);
 }
