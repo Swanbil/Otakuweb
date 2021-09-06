@@ -1,1 +1,4 @@
-Hello world
+OtakuWeb
+
+Mini project in React for the frontend and NodeJs for the backend that allow a user to discover new mangas and add mangas to his wish list(library).
+Manga's datas are got with KitsuAPI.
